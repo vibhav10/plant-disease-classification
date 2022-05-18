@@ -11,6 +11,10 @@ matplotlib = "*"
 fastapi = "*"
 uvicorn = "*"
 python-multipart = "*"
+requests = "*"
+streamlit = "*"
+flask-restful = "*"
+flask = "*"
 
 [dev-packages]
 
