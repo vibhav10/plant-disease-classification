@@ -1,5 +1,3 @@
-
-
 from fastapi import FastAPI, File, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
@@ -49,29 +47,22 @@ def read_file_as_image(data) -> np.ndarray:
     return image
 
 @app.post("/predict")
-async def predict(file: UploadFile = File(...)):
+async def predict(
+    file: UploadFile = File(...)
+):
     image = read_file_as_image(await file.read())
     #resize image to 256x256
-    img_batch = np.expand_dims(image, 0)    
+    image = tf.image.resize(image, (256, 256))
+    img_batch = np.expand_dims(image, 0)
+
     predictions = MODEL.predict(img_batch)
+
     predicted_class = CLASS_NAMES[np.argmax(predictions[0])]
     confidence = np.max(predictions[0])
     return {
         'class': predicted_class,
         'confidence': float(confidence)
     }
-'''
-
-@app.post("/predict")
-async def predict(file: UploadFile = File(...)):
-    image = read_file_as_image(image)
-    image = np.expand_dims(image, axis=0)
-    image = image/255.0
-    prediction = MODEL.predict(image)
-    prediction = CLASS_NAMES[np.argmax(prediction)]
-    return prediction
-'''
 
 if __name__ == "__main__":
     uvicorn.run(app, host='localhost', port=8000)
-
