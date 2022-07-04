@@ -7,13 +7,13 @@
     Using the application developed using streamlit, it is possible to classify the disease of a plant using the image of the plant. The image can be uploaded from the computer or from the camera. The image is then converted to a tensor and passed to the model for prediction. The predicted class is then displayed on the screen along with the confidence. </br>
 
 
-<img src="https://i.ibb.co/rpqc82s/streamlit.png" alt="streamlit" border="0" height="400" width="600">
-<img src="https://i.ibb.co/vZg74zq/streamlit2.png" alt="streamlit2" border="0" height="400" width="600">
+<img src="https://i.ibb.co/rpqc82s/streamlit.png" alt="streamlit" border="0" height="350" width="440">
+<img src="https://i.ibb.co/vZg74zq/streamlit2.png" alt="streamlit2" border="0" height="350" width="420">
 
 <h3 align="left"> Run locally </h3>
 <ul>
     <li> Install <a href="https://www.python.org/"> Python </a> </li>
-    <li> Install pipenv using ```bashpip install pipenv```</li>
+    <li> Install pipenv using 'pip install pipenv'</li>
     <li> cd to the project directory </li>
     <li> Install the dependencies using ```pipenv install -r requirements.txt```</li>
     <li> cd to streamlitFrontend directory </li>
